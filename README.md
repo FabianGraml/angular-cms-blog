@@ -2,8 +2,6 @@
 
 This is a simple blog post that demonstrates how to use Angular with [contentful], a healdess CMS.
 
-Demo: https://fabiangraml.github.io/angular-cms-blog/
-
 ## Prerequisites
 
 Before getting started, you will need to have the following tools installed:
