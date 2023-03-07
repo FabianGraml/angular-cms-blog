@@ -1,0 +1,28 @@
+<div class="header-container">
+    <header class="header-left">
+      <div>
+        <span class="logo-1">The</span>
+        <span class="logo-2">Dev</span>
+        <span class="logo-3">Blog</span>
+      </div>
+    </header>
+    <header class="header-right">
+      <h2 style="color: white">🔥Latest🔥</h2>
+      <div *ngIf="blogPosts | async as latestBlogPost">
+          <div class="latest-post" [routerLink]="['blog', latestBlogPost.items[0].sys.id]">
+              <h2 [routerLink]="['blog', latestBlogPost.items[0].sys.id]">{{latestBlogPost.items[0].fields.title}}</h2>
+              <p>by {{latestBlogPost.items[0].fields.author}}</p>
+              <a [routerLink]="['blog', latestBlogPost.items[0].sys.id]">Read More</a>
+          </div>
+      </div>
+  </header>
+  </div>
+<main *ngIf="blogPosts | async as blogPosts">
+<div class="blog-posts-container" *ngFor="let blogPost of blogPosts.items">
+    <img [src]="blogPost.fields.featuredImage.fields.file.url" alt="blog post image">
+    <h2>{{blogPost.fields.title}}</h2>
+    <p class="author">by {{blogPost.fields.author}} created {{blogPost.fields.createdAt | date}}</p>
+    <p class="summary">{{blogPost.fields.summary}}</p>
+    <a [routerLink]="['blog', blogPost.sys.id]">Read More</a>
+</div>
+</main>

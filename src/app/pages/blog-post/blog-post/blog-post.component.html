@@ -1,0 +1,12 @@
+<main *ngIf="blogPost | async as blogPost">
+    <div class="post-container">
+      <img [src]="blogPost.fields.featuredImage.fields.file.url" alt="blog post image">
+      <h2>{{ blogPost.fields.title }}</h2>
+      <p class="author">
+        by {{ blogPost.fields.author }} created
+        {{ blogPost.fields.createdAt | date }}
+      </p>
+      <p class="content">{{ blogPost.fields.content }}</p>
+      <div [innerHTML]="blogPost.fields.contentBody | mdToHtml"></div>
+    </div>
+  </main>  
